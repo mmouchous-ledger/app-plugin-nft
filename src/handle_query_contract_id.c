@@ -1,4 +1,4 @@
-#include "poap_plugin.h"
+#include "ledger_nft_plugin.h"
 
 void handle_query_contract_id(void *parameters) {
     ethQueryContractID_t *msg = (ethQueryContractID_t *) parameters;
@@ -7,7 +7,7 @@ void handle_query_contract_id(void *parameters) {
     strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
 
     switch (context->selectorIndex) {
-        case MINT_TOKEN:
+        case MINT:
             strlcpy(msg->version, "Mint", msg->versionLength);
             break;
         default:

@@ -5,38 +5,33 @@
 #include <string.h>
 
 #define NUM_SELECTORS    1
-#define PLUGIN_NAME      "POAP"
+#define PLUGIN_NAME      "Ledger NFT"
 #define TOKEN_FOUND      1 << 1
 #define SELECTOR_SIZE    4
 #define PARAMETER_LENGTH 32
 #define RUN_APPLICATION  1
 
 typedef enum {
-    MINT_TOKEN,
+    MINT,
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
 typedef enum {
-    EVENT_ID,
-    TOKEN,
-    BENEFICIARY,
-    FROM_ADDRESS,
+    AMOUNT,
     NONE,
 } parameter;
 
 typedef enum {
-    TOKEN_SCREEN,
-    BENEFICIARY_SCREEN,
-    FROM_ADDRESS_SCREEN,
-    WARN_SCREEN,
+    AMOUNT_SCREEN,
     ERROR,
 } screens_t;
 
-extern const uint8_t *const POAP_SELECTORS[NUM_SELECTORS];
+extern const uint8_t *const LEDGER_NFT_SELECTORS[NUM_SELECTORS];
 
 // Shared global memory with Ethereum app. Must be at most 5 * 32 bytes.
 typedef struct context_t {
     // For display.
+    uint8_t amount[PARAMETER_LENGTH];
     uint8_t beneficiary[ADDRESS_LENGTH];
     uint8_t token_id[PARAMETER_LENGTH];  // not crypto token dedicated poap token value int number
     char ticker[MAX_TICKER_LEN];
