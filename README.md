@@ -1,6 +1,7 @@
-# Ledger Poap Plugin
+# LedgerHQ-app-plugin-nft
+Ledger NFT Plugin
 
-This is a plugin for the Ethereum application which helps parsing and displaying relevant information when signing a Poap transaction.
+This is a plugin for the Ethereum application which helps parsing and displaying relevant information when signing a NFT transaction.
 
 ## Prerequisite
 
@@ -76,5 +77,4 @@ export DISPLAY=:10.0
 ```
 
 6. After this setup you could run ``yarn test`` and see the emulator in the RDP display going through the test sequence.
-
 
