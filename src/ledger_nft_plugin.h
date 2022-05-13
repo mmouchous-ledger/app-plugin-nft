@@ -1,10 +1,10 @@
 #pragma once
 
+#include <string.h>
 #include "eth_internals.h"
 #include "eth_plugin_interface.h"
-#include <string.h>
 
-#define NUM_SELECTORS    1
+#define NUM_SELECTORS    2
 #define PLUGIN_NAME      "Ledger NFT"
 #define TOKEN_FOUND      1 << 1
 #define SELECTOR_SIZE    4
@@ -13,6 +13,7 @@
 
 typedef enum {
     MINT,
+    PRE_SALE_MINT,
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
@@ -32,8 +33,6 @@ extern const uint8_t *const LEDGER_NFT_SELECTORS[NUM_SELECTORS];
 typedef struct context_t {
     // For display.
     uint8_t amount[PARAMETER_LENGTH];
-    uint8_t beneficiary[ADDRESS_LENGTH];
-    uint8_t token_id[PARAMETER_LENGTH];  // not crypto token dedicated poap token value int number
     char ticker[MAX_TICKER_LEN];
 
     // For parsing data.

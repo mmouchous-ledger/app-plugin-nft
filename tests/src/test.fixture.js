@@ -147,7 +147,7 @@ function zemu(device, func, testNetwork, signed = false) {
     pluginBaseURL: null,
     extraPlugins: config,
   }, {
-    nft: false,
+    nft: true,
     externalPlugins: true,
     erc20: false,
   })

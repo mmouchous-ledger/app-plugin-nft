@@ -33,6 +33,7 @@ void handle_init_contract(void *parameters) {
     // Set `next_param` to be the first field we expect to parse.
     switch (context->selectorIndex) {
         case MINT:
+        case PRE_SALE_MINT:
             break;
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);

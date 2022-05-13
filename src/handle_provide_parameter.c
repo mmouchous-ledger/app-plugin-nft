@@ -20,6 +20,7 @@ void handle_provide_parameter(void *parameters) {
         context->offset = 0;  // Reset offset
         switch (context->selectorIndex) {
             case MINT:
+            case PRE_SALE_MINT:
                 break;
             default:
                 PRINTF("Selector Index not supported: %d\n", context->selectorIndex);
