@@ -42,10 +42,10 @@ make -j DEBUG=1 BOLOS_SDK=$NANOX_SDK CHAIN=ethereum BYPASS_SIGNATURES=1 ALLOW_DA
 cd -
 cp "${APP_ETHEREUM}/bin/app.elf" "tests/elfs/ethereum_nanox.elf"
 
-echo "*Building elfs for Nano X..."
+echo "*Building elfs for Nano S+..."
 export BOLOS_SDK="$NANOSP_SDK"
 
-echo "**Building app-1inch for Nano S+..."
+echo "**Building app-ledger-nft for Nano S+..."
 make clean
 make -j DEBUG=1
 cp bin/app.elf "tests/elfs/ledger_nft_nanosp.elf"
