@@ -2,7 +2,7 @@
 // You will also need to create a `b2c.json` file that will hold the methodIDs and location of
 // the erc20 tokens that should get displayed.
 // EDIT THIS: replace with the name of your plugin (lowercase)
-const pluginFolder = "poap";
+const pluginFolder = "ledgerNFT";
 
 function serialize_data(pluginName, contractAddress, selector) {
 	const len = Buffer.from([pluginName.length]);
@@ -20,10 +20,10 @@ function assert(condition, message) {
 }
 
 // Function to generate the plugin configuration.
-function generate_plugin_config() {
+function generate_plugin_config(testNetwork) {
 
 	var fs = require('fs');
-	var files = fs.readdirSync(`networks/ethereum/${pluginFolder}/abis/`);
+	var files = fs.readdirSync(`networks/${testNetwork}/${pluginFolder}/abis/`);
 
 	// `contracts_to_abis` holds a maping of contract addresses to abis
 	let contracts_to_abis = {};
@@ -33,13 +33,13 @@ function generate_plugin_config() {
 		// Strip ".json" suffix
 		let contractAddress = abiFileName.slice(0, abiFileName.length - ".abi.json".length);
 		// Load abi
-		let abi = require(`../networks/ethereum/${pluginFolder}/abis/${abiFileName}`);
+		let abi = require(`../networks/${testNetwork}/${pluginFolder}/abis/${abiFileName}`);
 		// Add it to contracts
 		contracts_to_abis[contractAddress] = abi;
 	}
 
 	// Load the b2c.json file
-	const b2c = require(`../networks/ethereum/${pluginFolder}/b2c.json`);
+	const b2c = require(`../networks/${testNetwork}/${pluginFolder}/b2c.json`);
 
 	let res = {};
 

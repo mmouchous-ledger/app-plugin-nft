@@ -1,4 +1,4 @@
-#include "poap_plugin.h"
+#include "ledger_nft_plugin.h"
 
 // Called once to init.
 void handle_init_contract(void *parameters) {
@@ -21,7 +21,7 @@ void handle_init_contract(void *parameters) {
 
     uint8_t i;
     for (i = 0; i < NUM_SELECTORS; i++) {
-        if (memcmp((uint8_t *) PIC(POAP_SELECTORS[i]), msg->selector, SELECTOR_SIZE) == 0) {
+        if (memcmp((uint8_t *) PIC(LEDGER_NFT_SELECTORS[i]), msg->selector, SELECTOR_SIZE) == 0) {
             context->selectorIndex = i;
             break;
         }
@@ -32,8 +32,8 @@ void handle_init_contract(void *parameters) {
 
     // Set `next_param` to be the first field we expect to parse.
     switch (context->selectorIndex) {
-        case MINT_TOKEN:
-            context->next_param = EVENT_ID;
+        case MINT:
+        case PRE_SALE_MINT:
             break;
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);
