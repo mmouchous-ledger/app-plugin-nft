@@ -25,17 +25,17 @@ APP_LOAD_PARAMS += --appFlags 0x800 --path "44'/60'" --path "45'" --curve secp25
 APP_LOAD_PARAMS += $(COMMON_LOAD_PARAMS)
 
 APPVERSION_M     = 1
-APPVERSION_N     = 2
+APPVERSION_N     = 0
 APPVERSION_P     = 0
 APPVERSION       = $(APPVERSION_M).$(APPVERSION_N).$(APPVERSION_P)
 
-APPNAME = "POAP"
+APPNAME = "LedgerNFT"
 
 #prepare hsm generation
 ifeq ($(TARGET_NAME), TARGET_NANOS)
-ICONNAME=icons/nanos_app_poap.gif
+ICONNAME=icons/nanos_app_ledgernft.gif
 else
-ICONNAME=icons/nanox_app_poap.gif
+ICONNAME=icons/nanox_app_ledgernft.gif
 endif
 
 ################
@@ -158,4 +158,4 @@ include $(BOLOS_SDK)/Makefile.rules
 dep/%.d: %.c Makefile
 
 listvariants:
-	@echo VARIANTS NONE poap
+	@echo VARIANTS NONE nft

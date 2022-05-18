@@ -2,13 +2,15 @@
 
 ### Binaries
 
-The tests run using both the POAP plugin elf and the ethereum elf, both compiled
+The tests run using both the LedgerNFT plugin elf and the ethereum elf, both compiled
 for NanoS and X, so 4 binaries are needed. They are expected to be stored in the
 `tests/elfs/` directory, and named as follow:
 
-* `tests/elfs/poap_nanos.elf`
-* `tests/elfs/poap_nanox.elf`
+* `tests/elfs/ledger_nft_nanos.elf`
+* `tests/elfs/ledger_nft_nanosp.elf`
+* `tests/elfs/ledger_nft_nanox.elf`
 * `tests/elfs/ethereum_nanos.elf`
+* `tests/elfs/ethereum_nanosp.elf`
 * `tests/elfs/ethereum_nanox.elf`
 
 The `tests/build_local_test_elfs.sh` can be used to generate these binaries.
