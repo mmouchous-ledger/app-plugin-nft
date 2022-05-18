@@ -77,7 +77,7 @@ jobs:
             --form file=@cov-int.tar.gz \
             --form version=master \
             --form description="Ledger NFT Plugin" \
-            https://scan.coverity.com/builds?project=LedgerHQ%2Fapp-plugin-1inch
+            https://scan.coverity.com/builds?project=LedgerHQ%2Fapp-plugin-ledgernft
         env:
           EMAIL: ${{ secrets.COVERITY_SCAN_EMAIL }}
           TOKEN: ${{ secrets.COVERITY_SCAN_TOKEN }}

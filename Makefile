@@ -33,9 +33,9 @@ APPNAME = "LedgerNFT"
 
 #prepare hsm generation
 ifeq ($(TARGET_NAME), TARGET_NANOS)
-ICONNAME=icons/nanos_app_ledger_nft.gif
+ICONNAME=icons/nanos_app_ledgernft.gif
 else
-ICONNAME=icons/nanox_app_ledger_nft.gif
+ICONNAME=icons/nanox_app_ledgernft.gif
 endif
 
 ################
