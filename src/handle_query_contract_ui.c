@@ -2,7 +2,7 @@
 
 // Set UI for "Amount" screen.
 static void set_amount_ui(ethQueryContractUI_t *msg, context_t *context) {
-    strlcpy(msg->title, "Price", msg->titleLength);
+    strlcpy(msg->title, "Amount", msg->titleLength);
 
     amountToString(msg->pluginSharedRO->txContent->value.value,
                    msg->pluginSharedRO->txContent->value.length,
