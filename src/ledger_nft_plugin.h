@@ -14,8 +14,7 @@
 // Plugin uses 0x00000 as a dummy address to reprecent ETH.
 extern const uint8_t NULL_ETH_ADDRESS[ADDRESS_LENGTH];
 
-#define ADDRESS_IS_NETWORK_TOKEN(_addr)                    \
-    (!memcmp(_addr, NULL_ETH_ADDRESS, ADDRESS_LENGTH))
+#define ADDRESS_IS_NETWORK_TOKEN(_addr) (!memcmp(_addr, NULL_ETH_ADDRESS, ADDRESS_LENGTH))
 typedef enum {
     MINT,
     PRE_SALE_MINT,
