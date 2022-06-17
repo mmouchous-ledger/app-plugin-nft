@@ -4,10 +4,15 @@
 static void set_amount_ui(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Amount", msg->titleLength);
 
+    // set network ticker (ETH, BNB, etc) if needed
+    if (ADDRESS_IS_NETWORK_TOKEN(context->contract_address_sent)) {
+        strlcpy(context->ticker_sent, msg->network_ticker, sizeof(context->ticker_sent));
+    }
+
     amountToString(msg->pluginSharedRO->txContent->value.value,
                    msg->pluginSharedRO->txContent->value.length,
                    WEI_TO_ETHER,
-                   context->ticker,
+                   context->ticker_sent,
                    msg->msg,
                    msg->msgLength);
 }
