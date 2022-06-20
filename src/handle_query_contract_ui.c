@@ -21,7 +21,6 @@ static screens_t get_screen(const ethQueryContractUI_t *msg, const context_t *co
             return AMOUNT_SCREEN;
         default:
             return ERROR;
-            break;
     }
 }
 
