@@ -1,16 +1,16 @@
 import { processTest, populateTransaction } from "./test.fixture";
 
-const contractName = "NFTExample";
+const contractName = "MultiMintContractNFT";
 
 const testLabel = "Mint"; // <= Name of the test
 const testDirSuffix = "mint"; // <= directory to compare device snapshots to
 const signedPlugin = false;
 const testNetwork= "ethereum";
 
-const contractAddr = "0xd7aff4db67e1aa519807221a09c83ade09833992";
+const contractAddr = "0x6c304a1f99cecd3a9983001e943f3de00ed811d0";
 const chainID = 1;
 
-const selector = "0x1249c58b";
+const selector = "0xa0712d68";
 
 const inputData = selector;
 const value = "12.0";
