@@ -19,8 +19,6 @@ const inputData = selector + signature;
 // Create serializedTx and remove the "0x" prefix
 const serializedTx = populateTransaction(contractAddr, inputData, chainID, value);
 
-
-populateTransaction
 const devices = [
   {
     name: "nanos",

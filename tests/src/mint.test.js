@@ -18,8 +18,6 @@ const value = "12.0";
 // Create serializedTx and remove the "0x" prefix
 const serializedTx = populateTransaction(contractAddr, inputData, chainID, value);
 
-
-populateTransaction
 const devices = [
   {
     name: "nanos",

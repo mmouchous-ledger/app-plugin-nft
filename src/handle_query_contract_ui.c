@@ -18,7 +18,8 @@ static void set_amount_ui(ethQueryContractUI_t *msg, context_t *context) {
 }
 
 // Helper function that returns the enum corresponding to the screen that should be displayed.
-static screens_t get_screen(const ethQueryContractUI_t *msg, const context_t *context) {
+static screens_t get_screen(const ethQueryContractUI_t *msg,
+                            const context_t *context __attribute__((unused))) {
     uint8_t index = msg->screenIndex;
 
     switch (index) {
@@ -26,7 +27,6 @@ static screens_t get_screen(const ethQueryContractUI_t *msg, const context_t *co
             return AMOUNT_SCREEN;
         default:
             return ERROR;
-            break;
     }
 }
 
