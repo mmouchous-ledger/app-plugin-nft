@@ -43,7 +43,6 @@ typedef struct context_t {
     uint8_t contract_address_sent[ADDRESS_LENGTH];
     char ticker_sent[MAX_TICKER_LEN];
 
-
     // For parsing data.
     uint16_t offset;
     uint16_t checkpoint;

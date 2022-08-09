@@ -1,8 +1,6 @@
 #include "ledger_nft_plugin.h"
 
-
-
-void handle_amount(const ethPluginProvideParameter_t *msg, context_t *context){
+void handle_amount(const ethPluginProvideParameter_t *msg, context_t *context) {
     copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
 }
 

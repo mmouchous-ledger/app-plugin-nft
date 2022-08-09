@@ -20,21 +20,13 @@ static void set_payable_amount_ui(ethQueryContractUI_t *msg, context_t *context)
 static void set_amount_ui(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Quantity", msg->titleLength);
 
-
-    amountToString(context->amount,
-                   sizeof(context->amount),
-                   0,
-                   "",
-                   msg->msg,
-                   msg->msgLength);
-
+    amountToString(context->amount, sizeof(context->amount), 0, "", msg->msg, msg->msgLength);
 }
 
 // Helper function that returns the enum corresponding to the screen that should be displayed.
 static screens_t get_screen(const ethQueryContractUI_t *msg,
                             const context_t *context __attribute__((unused))) {
     uint8_t index = msg->screenIndex;
-
     switch (index) {
         case 0:
             return AMOUNT_SCREEN;
