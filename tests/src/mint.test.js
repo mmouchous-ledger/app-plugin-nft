@@ -11,8 +11,9 @@ const contractAddr = "0x6c304a1f99cecd3a9983001e943f3de00ed811d0";
 const chainID = 1;
 
 const selector = "0xa0712d68";
+const quantity = "0000000000000000000000000000000000000000000000000000000000000005";
 
-const inputData = selector;
+const inputData = selector+quantity;
 const value = "12.0";
 
 // Create serializedTx and remove the "0x" prefix
