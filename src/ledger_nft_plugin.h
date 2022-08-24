@@ -22,12 +22,14 @@ typedef enum {
 
 // Enumeration used to parse the smart contract data.
 typedef enum {
+    PAYABLE_AMOUNT,
     AMOUNT,
     NONE,
 } parameter;
 
 typedef enum {
     AMOUNT_SCREEN,
+    PAYABLE_AMOUNT_SCREEN,
     ERROR,
 } screens_t;
 
@@ -37,6 +39,7 @@ extern const uint8_t *const LEDGER_NFT_SELECTORS[NUM_SELECTORS];
 typedef struct context_t {
     // For display.
     uint8_t amount[PARAMETER_LENGTH];
+    uint8_t payable_amount[PARAMETER_LENGTH];
     uint8_t contract_address_sent[ADDRESS_LENGTH];
     char ticker_sent[MAX_TICKER_LEN];
 
