@@ -48,8 +48,8 @@ void dispatch_plugin_calls(int message, void *parameters) {
     }
 }
 
-void handle_query_ui_exception(unsigned int * args) {
-    switch(args[0]) {
+void handle_query_ui_exception(unsigned int *args) {
+    switch (args[0]) {
         case ETH_PLUGIN_QUERY_CONTRACT_UI:
             ((ethQueryContractUI_t *) args[1])->result = ETH_PLUGIN_RESULT_ERROR;
             break;
@@ -97,9 +97,8 @@ __attribute__((section(".boot"))) int main(int arg0) {
                 }
             }
         }
-        CATCH_OTHER (e) {
-            switch (e)
-            {
+        CATCH_OTHER(e) {
+            switch (e) {
                 // These exceptions are only generated on handle_query_contract_ui()
                 case 0x6502:
                 case EXCEPTION_OVERFLOW:
