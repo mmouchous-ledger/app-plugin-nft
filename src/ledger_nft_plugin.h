@@ -4,7 +4,7 @@
 #include "eth_internals.h"
 #include "eth_plugin_interface.h"
 
-#define NUM_SELECTORS    2
+#define NUM_SELECTORS    6
 #define PLUGIN_NAME      "Ledger NFT"
 #define TOKEN_FOUND      1 << 1
 #define SELECTOR_SIZE    4
@@ -15,10 +15,7 @@
 extern const uint8_t NULL_ETH_ADDRESS[ADDRESS_LENGTH];
 
 #define ADDRESS_IS_NETWORK_TOKEN(_addr) (!memcmp(_addr, NULL_ETH_ADDRESS, ADDRESS_LENGTH))
-typedef enum {
-    MINT,
-    PRE_SALE_MINT,
-} selector_t;
+typedef enum { MINT, PRE_SALE_MINT, STABLE_MINT_SIGN, STABLE_MINT, MINT_SIGN, MINT_V2 } selector_t;
 
 // Enumeration used to parse the smart contract data.
 typedef enum {

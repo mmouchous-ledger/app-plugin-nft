@@ -34,6 +34,10 @@ void handle_init_contract(void *parameters) {
     switch (context->selectorIndex) {
         case MINT:
         case PRE_SALE_MINT:
+        case STABLE_MINT_SIGN:
+        case STABLE_MINT:
+        case MINT_SIGN:
+        case MINT_V2:
             context->next_param = AMOUNT;
             break;
         default:
