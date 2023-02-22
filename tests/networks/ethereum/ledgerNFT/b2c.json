@@ -1,6 +1,6 @@
 {
     "chainId": 1,
-    "contracts": [        
+    "contracts": [
         {
             "address": "0x6c304a1f99cecd3a9983001e943f3de00ed811d0",
             "contractName": "MultiMintContractNFT",
@@ -13,6 +13,32 @@
                 "0x827481ea": {
                     "erc20OfInterest": [],
                     "method": "preSaleMint",
+                    "plugin": "LedgerNFT"
+                }
+            }
+        },
+        {
+            "address": "0x9ea4571a739a1d644e17d34a86e7dee97609b256",
+            "contractName": "StableMultiMintERC721",
+            "selectors": {
+                "0x11413601": {
+                    "erc20OfInterest": [],
+                    "method": "stableMintSign",
+                    "plugin": "LedgerNFT"
+                },
+                "0x804b936f": {
+                    "erc20OfInterest": [],
+                    "method": "stableMint",
+                    "plugin": "LedgerNFT"
+                },
+                "0xf39247a9": {
+                    "erc20OfInterest": [],
+                    "method": "mintSign",
+                    "plugin": "LedgerNFT"
+                },
+                "0xa0712d68": {
+                    "erc20OfInterest": [],
+                    "method": "mint",
                     "plugin": "LedgerNFT"
                 }
             }
