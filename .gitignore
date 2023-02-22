@@ -9,6 +9,10 @@ tests/elfs/
 
 # Editors
 .idea/
+.vscode
+
+# Codespace configuration
+.devcontainer
 
 # Python
 *.pyc[cod]
