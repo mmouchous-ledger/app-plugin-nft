@@ -27,10 +27,21 @@ Need more information about the interface, the architecture, or general stuff ab
 
 Smart contracts covered by this plugin are:
 
-| Network | Version | Smart Contract |
-| ---       | --- | --- |
+|  Network | Version | Smart Contract |
+| ---      | --- | --- |
 | Goerli   | V0  | `0x6c304a1f99cecd3a9983001e943f3de00ed811d0`|
+| Goerli   | V0  | `0x9ea4571a739a1d644e17d34a86e7dee97609b256`|
 
+On these smart contracts, the functions covered by this plugin are:
+
+|    Function   | Selector  | Displayed Parameters |
+| ---           | ---       | --- |
+|mint           | 0xa0712d68| <table><tbody> <tr><td><code>uint256 amount</code></td></tr> </tbody></table> |
+|preSaleMint    | 0x827481ea| <table><tbody> <tr><td><code>uint256 amount</code></td></tr> </tbody></table> |
+|stableMintSign | 0x11413601| <table><tbody> <tr><td><code>uint256 amount</code></td></tr> </tbody></table> |
+|stableMint     | 0x804b936f| <table><tbody> <tr><td><code>uint256 amount</code></td></tr> </tbody></table> |
+|mintSign       | 0xf39247a9| <table><tbody> <tr><td><code>uint256 amount</code></td></tr> </tbody></table> |
+|mint (v2)      | 0xa0712d68| <table><tbody> <tr><td><code>uint256 amount</code></td></tr> </tbody></table> |
 
 ## Build
 

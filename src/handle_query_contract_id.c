@@ -13,6 +13,18 @@ void handle_query_contract_id(void *parameters) {
         case PRE_SALE_MINT:
             strlcpy(msg->version, "Presale Mint", msg->versionLength);
             break;
+        case STABLE_MINT_SIGN:
+            strlcpy(msg->version, "Stable Mint Sign", msg->versionLength);
+            break;
+        case STABLE_MINT:
+            strlcpy(msg->version, "Stable Mint", msg->versionLength);
+            break;
+        case MINT_SIGN:
+            strlcpy(msg->version, "Mint Sign", msg->versionLength);
+            break;
+        case MINT_V2:
+            strlcpy(msg->version, "Mint", msg->versionLength);
+            break;
         default:
             PRINTF("Selector index: %d not supported\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;
