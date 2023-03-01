@@ -42,6 +42,17 @@
                     "plugin": "LedgerNFT"
                 }
             }
+        },
+        {
+            "address": "0x12b180053db389b6200e6f646949e6ab7b385d40",
+            "contractName": "MultiMint1155",
+            "selectors": {
+                "0x657bb113": {
+                    "erc20OfInterest": [],
+                    "method": "mintSign",
+                    "plugin": "LedgerNFT"
+                }
+            }
         }
     ],
     "name": "LedgerNFT"

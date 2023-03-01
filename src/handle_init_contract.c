@@ -40,6 +40,9 @@ void handle_init_contract(void *parameters) {
         case MINT_V2:
             context->next_param = AMOUNT;
             break;
+        case MINT_SIGN_V2:
+            context->next_param = OFFSET;
+            break;
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;
