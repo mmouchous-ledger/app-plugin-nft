@@ -5,7 +5,7 @@ const contractName = "MultiMintContractNFT";
 const testLabel = "Mint"; // <= Name of the test
 const testDirSuffix = "mint"; // <= directory to compare device snapshots to
 const signedPlugin = false;
-const testNetwork = "ethereum";
+const testNetwork = "ethereum_goerli";
 
 const contractAddr = "0x6c304a1f99cecd3a9983001e943f3de00ed811d0";
 const chainID = 1;
