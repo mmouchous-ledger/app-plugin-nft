@@ -27,10 +27,12 @@ Need more information about the interface, the architecture, or general stuff ab
 
 Smart contracts covered by this plugin are:
 
-|  Network | Version | Smart Contract |
-| ---      | --- | --- |
-| Goerli   | V0  | `0x6c304a1f99cecd3a9983001e943f3de00ed811d0`|
-| Goerli   | V0  | `0x9ea4571a739a1d644e17d34a86e7dee97609b256`|
+|  Network | Version | Smart Contract | Address |
+|   ----   |   ---   |      ----      |   ---   |
+| Goerli   | V0  | MultiMintContractNFT  | `0x6c304a1f99cecd3a9983001e943f3de00ed811d0` |
+| Goerli   | V0  | StableMultiMintERC721 | `0x9ea4571a739a1d644e17d34a86e7dee97609b256` |
+| Goerli   | V0  | MultiMint1155         | `0x12b180053db389b6200e6f646949e6ab7b385d40` |
+
 
 On these smart contracts, the functions covered by this plugin are:
 
@@ -42,6 +44,7 @@ On these smart contracts, the functions covered by this plugin are:
 |stableMint     | 0x804b936f| <table><tbody> <tr><td><code>uint256 amount</code></td></tr> </tbody></table> |
 |mintSign       | 0xf39247a9| <table><tbody> <tr><td><code>uint256 amount</code></td></tr> </tbody></table> |
 |mint (v2)      | 0xa0712d68| <table><tbody> <tr><td><code>uint256 amount</code></td></tr> </tbody></table> |
+|mintSign (v2)  | 0x657bb113| <table><tbody> <tr><td><code>uint256 tokenId</code></td></tr> <tr><td><code>uint256 amount</code></td></tr> <tr><td><code>address pass</code></td></tr></tbody></table> |
 
 ## Build
 
