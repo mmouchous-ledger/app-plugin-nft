@@ -16,6 +16,10 @@ void handle_finalize(void *parameters) {
         case MINT_SIGN_V2:
             msg->numScreens = 4;
             break;
+        default:
+            PRINTF("Selector Index not supported: %d\n", context->selectorIndex);
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            return;
     }
     msg->result = ETH_PLUGIN_RESULT_OK;
 }
