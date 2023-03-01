@@ -49,6 +49,7 @@ let genericTx = {
 let config;
 
 const TIMEOUT = 1000000;
+jest.setTimeout(TIMEOUT);
 
 /**
  * Generates a serializedTransaction from a rawHexTransaction copy pasted from etherscan.
@@ -92,7 +93,6 @@ function txFromEtherscan(rawTx) {
   */
 function zemu(device, func, testNetwork, signed = false) {
     return async () => {
-        jest.setTimeout(TIMEOUT);
         let eth_path;
         let plugin;
         let sim_options = sim_options_generic;
@@ -185,7 +185,6 @@ async function processTransaction(eth, sim, steps, label, rawTxHex, srlTx = "") 
  * @param {boolean} signed The plugin is already signed and existing in Ledger database
  */
 function processTest(device, contractName, testLabel, testDirSuffix, rawTxHex, signed, serializedTx, testNetwork) {
-    jest.setTimeout(TIMEOUT);
     test(
         "[" + contractName + "] - " + device.label + " - " + testLabel,
         zemu(device.name, async (sim, eth) => {
