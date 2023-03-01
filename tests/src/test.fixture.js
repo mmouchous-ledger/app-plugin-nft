@@ -24,9 +24,9 @@ const NANOS_ETH_PATH = Resolve("elfs/ethereum_nanos.elf");
 const NANOSP_ETH_PATH = Resolve("elfs/ethereum_nanosp.elf");
 const NANOX_ETH_PATH = Resolve("elfs/ethereum_nanox.elf");
 
-const NANOS_PLUGIN_PATH = Resolve("elfs/ledger_nft_nanos.elf");
-const NANOSP_PLUGIN_PATH = Resolve("elfs/ledger_nft_nanosp.elf");
-const NANOX_PLUGIN_PATH = Resolve("elfs/ledger_nft_nanox.elf");
+const NANOS_PLUGIN_PATH = Resolve("elfs/plugin_nanos.elf");
+const NANOSP_PLUGIN_PATH = Resolve("elfs/plugin_nanosp.elf");
+const NANOX_PLUGIN_PATH = Resolve("elfs/plugin_nanox.elf");
 
 const NANOS_PLUGIN = { "LedgerNFT": NANOS_PLUGIN_PATH };
 const NANOSP_PLUGIN = { "LedgerNFT": NANOSP_PLUGIN_PATH };
@@ -87,11 +87,12 @@ function txFromEtherscan(rawTx) {
   * Emulation of the device using zemu
   * @param {string} device name of the device to emulate (nanos, nanox)
   * @param {function} func
-  * @param {boolean} signed the plugin is already signed 
+  * @param {boolean} signed the plugin is already signed
   * @returns {Promise}
   */
 function zemu(device, func, testNetwork, signed = false) {
     return async () => {
+        jest.setTimeout(TIMEOUT);
         let eth_path;
         let plugin;
         let sim_options = sim_options_generic;
