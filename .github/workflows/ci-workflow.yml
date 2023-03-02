@@ -151,7 +151,7 @@ jobs:
 
       - name: Build
         run: |
-          make DEBUG=1 BYPASS_SIGNATURES=1 BOLOS_SDK=${{ matrix.sdk }} -j
+          make DEBUG=1 BYPASS_SIGNATURES=1 BOLOS_SDK=${{ matrix.sdk }} -j CHAIN=ethereum ALLOW_DATA=1
 
       - name: Rename binary
         run: |
