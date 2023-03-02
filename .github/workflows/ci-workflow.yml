@@ -114,6 +114,7 @@ jobs:
 
       - name: Build
         run: |
+          make clean
           make -j DEBUG=1 BOLOS_SDK=${{ matrix.sdk }}
 
       - name: Rename binary
@@ -151,6 +152,7 @@ jobs:
 
       - name: Build
         run: |
+          make clean
           make -j DEBUG=1 BYPASS_SIGNATURES=1 BOLOS_SDK=${{ matrix.sdk }} CHAIN=ethereum ALLOW_DATA=1
 
       - name: Rename binary
