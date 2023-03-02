@@ -176,6 +176,10 @@ jobs:
           name: binaries
           path: tests/elfs/
 
+      - name: Check downloaded binaries
+        run: ls -lh ./tests/elfs
+      - run: sudo apt-get update -y && sudo apt-get install -y libusb-1.0.0 libudev-dev
+
       - name: Install node
         uses: actions/setup-node@v3
         with:
