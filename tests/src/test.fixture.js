@@ -24,9 +24,9 @@ const NANOS_ETH_PATH = Resolve("elfs/ethereum_nanos.elf");
 const NANOSP_ETH_PATH = Resolve("elfs/ethereum_nanosp.elf");
 const NANOX_ETH_PATH = Resolve("elfs/ethereum_nanox.elf");
 
-const NANOS_PLUGIN_PATH = Resolve("elfs/ledger_nft_nanos.elf");
-const NANOSP_PLUGIN_PATH = Resolve("elfs/ledger_nft_nanosp.elf");
-const NANOX_PLUGIN_PATH = Resolve("elfs/ledger_nft_nanox.elf");
+const NANOS_PLUGIN_PATH = Resolve("elfs/plugin_nanos.elf");
+const NANOSP_PLUGIN_PATH = Resolve("elfs/plugin_nanosp.elf");
+const NANOX_PLUGIN_PATH = Resolve("elfs/plugin_nanox.elf");
 
 const NANOS_PLUGIN = { "LedgerNFT": NANOS_PLUGIN_PATH };
 const NANOSP_PLUGIN = { "LedgerNFT": NANOSP_PLUGIN_PATH };
@@ -49,6 +49,7 @@ let genericTx = {
 let config;
 
 const TIMEOUT = 1000000;
+jest.setTimeout(TIMEOUT);
 
 /**
  * Generates a serializedTransaction from a rawHexTransaction copy pasted from etherscan.
@@ -87,7 +88,7 @@ function txFromEtherscan(rawTx) {
   * Emulation of the device using zemu
   * @param {string} device name of the device to emulate (nanos, nanox)
   * @param {function} func
-  * @param {boolean} signed the plugin is already signed 
+  * @param {boolean} signed the plugin is already signed
   * @returns {Promise}
   */
 function zemu(device, func, testNetwork, signed = false) {
@@ -184,7 +185,6 @@ async function processTransaction(eth, sim, steps, label, rawTxHex, srlTx = "") 
  * @param {boolean} signed The plugin is already signed and existing in Ledger database
  */
 function processTest(device, contractName, testLabel, testDirSuffix, rawTxHex, signed, serializedTx, testNetwork) {
-    jest.setTimeout(TIMEOUT);
     test(
         "[" + contractName + "] - " + device.label + " - " + testLabel,
         zemu(device.name, async (sim, eth) => {

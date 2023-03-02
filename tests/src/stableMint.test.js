@@ -5,7 +5,7 @@ const contractName = "StableMultiMintERC721";
 const testLabel = "StableMint"; // <= Name of the test
 const testDirSuffix = "stable_mint"; // <= directory to compare device snapshots to
 const signedPlugin = false;
-const testNetwork = "ethereum";
+const testNetwork = "ethereum_goerli";
 
 const contractAddr = "0x9ea4571a739a1d644e17d34a86e7dee97609b256";
 const chainID = 1;
