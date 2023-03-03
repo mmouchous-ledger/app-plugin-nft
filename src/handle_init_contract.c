@@ -44,6 +44,7 @@ void handle_init_contract(void *parameters) {
             context->next_param = OFFSET;
             break;
         case BID:
+        case FINALIZE_AUCTION:
             context->next_param = AUCTION_ID;
             break;
         default:

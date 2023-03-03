@@ -88,6 +88,15 @@ static screens_t get_screen(const ethQueryContractUI_t *msg,
                 default:
                     return ERROR;
             }
+            break;
+        case FINALIZE_AUCTION:
+            switch (index) {
+                case 0:
+                    return AUCTION_ID_SCREEN;
+                default:
+                    return ERROR;
+            }
+            break;
         default:
             PRINTF("Selector index: %d not supported\n", context->selectorIndex);
             return ERROR;
