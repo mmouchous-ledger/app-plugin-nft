@@ -5,6 +5,9 @@ void handle_finalize(void *parameters) {
     context_t *context = (context_t *) msg->pluginContext;
     msg->uiType = ETH_UI_TYPE_GENERIC;
     switch (context->selectorIndex) {
+        case FINALIZE_AUCTION:
+            msg->numScreens = 1;
+            break;
         case MINT:
         case PRE_SALE_MINT:
         case STABLE_MINT_SIGN:

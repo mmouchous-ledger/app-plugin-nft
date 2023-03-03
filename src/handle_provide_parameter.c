@@ -65,7 +65,7 @@ void handle_mint_sign_v2(ethPluginProvideParameter_t *msg, context_t *context) {
     }
 }
 
-void handle_bid(ethPluginProvideParameter_t *msg, context_t *context) {
+void handle_auction(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AUCTION_ID:
             // Using context->token_id to store the auctionId
@@ -113,7 +113,8 @@ void handle_provide_parameter(void *parameters) {
                 handle_mint_sign_v2(msg, context);
                 break;
             case BID:
-                handle_bid(msg, context);
+            case FINALIZE_AUCTION:
+                handle_auction(msg, context);
                 break;
             default:
                 PRINTF("Selector Index not supported: %d\n", context->selectorIndex);

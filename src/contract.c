@@ -32,6 +32,10 @@ static const uint8_t MINT_SIGN_V2_SELECTOR[SELECTOR_SIZE] = {0x65, 0x7b, 0xb1, 0
 // Selector: 0x454a2ab3
 static const uint8_t BID_SELECTOR[SELECTOR_SIZE] = {0x45, 0x4a, 0x2a, 0xb3};
 
+// Function: finalizeAuction
+// Selector: 0xe8083863
+static const uint8_t FINALIZE_AUCTION_SELECTOR[SELECTOR_SIZE] = {0xe8, 0x08, 0x38, 0x63};
+
 // Plugin uses 0x00000 as a dummy address to reprecent ETH.
 const uint8_t NULL_ETH_ADDRESS[ADDRESS_LENGTH] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -47,4 +51,5 @@ const uint8_t *const LEDGER_NFT_SELECTORS[NUM_SELECTORS] = {
     MINT_V2_SELECTOR,
     MINT_SIGN_V2_SELECTOR,
     BID_SELECTOR,
+    FINALIZE_AUCTION_SELECTOR,
 };
