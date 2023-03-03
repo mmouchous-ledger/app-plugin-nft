@@ -25,8 +25,8 @@ APP_LOAD_PARAMS += --appFlags 0x800 --path "44'/60'" --path "45'" --path "44'/1'
 APP_LOAD_PARAMS += $(COMMON_LOAD_PARAMS)
 
 APPVERSION_M     = 1
-APPVERSION_N     = 3
-APPVERSION_P     = 1
+APPVERSION_N     = 4
+APPVERSION_P     = 0
 APPVERSION       = $(APPVERSION_M).$(APPVERSION_N).$(APPVERSION_P)
 
 APPNAME = "[ L ] Market"
