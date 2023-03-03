@@ -4,7 +4,7 @@
 #include "eth_internals.h"
 #include "eth_plugin_interface.h"
 
-#define NUM_SELECTORS    7
+#define NUM_SELECTORS    8
 #define PLUGIN_NAME      "Ledger NFT"
 #define TOKEN_FOUND      1 << 1
 #define SELECTOR_SIZE    4
@@ -23,6 +23,7 @@ typedef enum {
     MINT_SIGN,
     MINT_V2,
     MINT_SIGN_V2,
+    BID,
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
@@ -31,6 +32,7 @@ typedef enum {
     AMOUNT,
     OFFSET,
     TOKEN_ID,
+    AUCTION_ID,
     ADDRESS,
     SKIP,
     SKIP_2,
@@ -42,6 +44,7 @@ typedef enum {
     PAYABLE_AMOUNT_SCREEN,
     TOKEN_ID_SCREEN,
     ADDRESS_SCREEN,
+    AUCTION_ID_SCREEN,
     ERROR,
 } screens_t;
 

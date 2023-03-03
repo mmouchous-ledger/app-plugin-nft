@@ -29,6 +29,12 @@ static void set_token_id_ui(ethQueryContractUI_t *msg, context_t *context) {
     amountToString(context->token_id, sizeof(context->token_id), 0, "", msg->msg, msg->msgLength);
 }
 
+static void set_auction_id_ui(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Auction ID", msg->titleLength);
+    // context->token_id is used to store the auction id
+    amountToString(context->token_id, sizeof(context->token_id), 0, "", msg->msg, msg->msgLength);
+}
+
 static void set_address_ui(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Address", msg->titleLength);
     msg->msg[0] = '0';
@@ -73,6 +79,15 @@ static screens_t get_screen(const ethQueryContractUI_t *msg,
                     return ERROR;
             }
             break;
+        case BID:
+            switch (index) {
+                case 0:
+                    return AUCTION_ID_SCREEN;
+                case 1:
+                    return PAYABLE_AMOUNT_SCREEN;
+                default:
+                    return ERROR;
+            }
         default:
             PRINTF("Selector index: %d not supported\n", context->selectorIndex);
             return ERROR;
@@ -88,48 +103,24 @@ void handle_query_contract_ui(void *parameters) {
     msg->result = ETH_PLUGIN_RESULT_OK;
 
     screens_t screen = get_screen(msg, context);
-    switch (context->selectorIndex) {
-        case MINT:
-        case PRE_SALE_MINT:
-        case STABLE_MINT_SIGN:
-        case STABLE_MINT:
-        case MINT_SIGN:
-        case MINT_V2:
-            switch (screen) {
-                case AMOUNT_SCREEN:
-                    set_amount_ui(msg, context);
-                    break;
-                case PAYABLE_AMOUNT_SCREEN:
-                    set_payable_amount_ui(msg, context);
-                    break;
-                default:
-                    PRINTF("Received an invalid screenIndex\n");
-                    msg->result = ETH_PLUGIN_RESULT_ERROR;
-                    return;
-            }
+    switch (screen) {
+        case PAYABLE_AMOUNT_SCREEN:
+            set_payable_amount_ui(msg, context);
             break;
-        case MINT_SIGN_V2:
-            switch (screen) {
-                case TOKEN_ID_SCREEN:
-                    set_token_id_ui(msg, context);
-                    break;
-                case AMOUNT_SCREEN:
-                    set_amount_ui(msg, context);
-                    break;
-                case PAYABLE_AMOUNT_SCREEN:
-                    set_payable_amount_ui(msg, context);
-                    break;
-                case ADDRESS_SCREEN:
-                    set_address_ui(msg, context);
-                    break;
-                default:
-                    PRINTF("Received an invalid screenIndex\n");
-                    msg->result = ETH_PLUGIN_RESULT_ERROR;
-                    return;
-            }
+        case TOKEN_ID_SCREEN:
+            set_token_id_ui(msg, context);
+            break;
+        case AMOUNT_SCREEN:
+            set_amount_ui(msg, context);
+            break;
+        case ADDRESS_SCREEN:
+            set_address_ui(msg, context);
+            break;
+        case AUCTION_ID_SCREEN:
+            set_auction_id_ui(msg, context);
             break;
         default:
-            PRINTF("Selector index: %d not supported\n", context->selectorIndex);
+            PRINTF("Received an invalid screenIndex\n");
             msg->result = ETH_PLUGIN_RESULT_ERROR;
             return;
     }
