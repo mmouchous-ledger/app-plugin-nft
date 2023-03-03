@@ -53,6 +53,17 @@
                     "plugin": "LedgerNFT"
                 }
             }
+        },
+        {
+            "address": "0xc5ae7ff025d5c373762a73557e3dd3049cda1f2d",
+            "contractName": "AuctionCore",
+            "selectors": {
+                "0x454a2ab3": {
+                    "erc20OfInterest": [],
+                    "method": "bid",
+                    "plugin": "LedgerNFT"
+                }
+            }
         }
     ],
     "name": "LedgerNFT"

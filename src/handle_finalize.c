@@ -11,6 +11,7 @@ void handle_finalize(void *parameters) {
         case STABLE_MINT:
         case MINT_SIGN:
         case MINT_V2:
+        case BID:
             msg->numScreens = 2;
             break;
         case MINT_SIGN_V2:

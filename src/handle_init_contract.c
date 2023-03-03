@@ -43,6 +43,9 @@ void handle_init_contract(void *parameters) {
         case MINT_SIGN_V2:
             context->next_param = OFFSET;
             break;
+        case BID:
+            context->next_param = AUCTION_ID;
+            break;
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;

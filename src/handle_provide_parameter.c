@@ -65,6 +65,22 @@ void handle_mint_sign_v2(ethPluginProvideParameter_t *msg, context_t *context) {
     }
 }
 
+void handle_bid(ethPluginProvideParameter_t *msg, context_t *context) {
+    switch (context->next_param) {
+        case AUCTION_ID:
+            // Using context->token_id to store the auctionId
+            handle_token_id(msg, context);
+            context->next_param = NONE;
+            break;
+        case NONE:
+            break;
+        default:
+            PRINTF("Param not supported\n");
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            break;
+    }
+}
+
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
@@ -95,6 +111,9 @@ void handle_provide_parameter(void *parameters) {
                 break;
             case MINT_SIGN_V2:
                 handle_mint_sign_v2(msg, context);
+                break;
+            case BID:
+                handle_bid(msg, context);
                 break;
             default:
                 PRINTF("Selector Index not supported: %d\n", context->selectorIndex);
