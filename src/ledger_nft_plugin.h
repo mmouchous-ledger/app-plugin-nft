@@ -4,7 +4,7 @@
 #include "eth_internals.h"
 #include "eth_plugin_interface.h"
 
-#define NUM_SELECTORS    2
+#define NUM_SELECTORS    9
 #define PLUGIN_NAME      "Ledger NFT"
 #define TOKEN_FOUND      1 << 1
 #define SELECTOR_SIZE    4
@@ -18,18 +18,34 @@ extern const uint8_t NULL_ETH_ADDRESS[ADDRESS_LENGTH];
 typedef enum {
     MINT,
     PRE_SALE_MINT,
+    STABLE_MINT_SIGN,
+    STABLE_MINT,
+    MINT_SIGN,
+    MINT_V2,
+    MINT_SIGN_V2,
+    BID,
+    FINALIZE_AUCTION,
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
 typedef enum {
     PAYABLE_AMOUNT,
     AMOUNT,
+    OFFSET,
+    TOKEN_ID,
+    AUCTION_ID,
+    ADDRESS,
+    SKIP,
+    SKIP_2,
     NONE,
 } parameter;
 
 typedef enum {
     AMOUNT_SCREEN,
     PAYABLE_AMOUNT_SCREEN,
+    TOKEN_ID_SCREEN,
+    ADDRESS_SCREEN,
+    AUCTION_ID_SCREEN,
     ERROR,
 } screens_t;
 
@@ -39,7 +55,9 @@ extern const uint8_t *const LEDGER_NFT_SELECTORS[NUM_SELECTORS];
 typedef struct context_t {
     // For display.
     uint8_t amount[PARAMETER_LENGTH];
+    uint8_t token_id[PARAMETER_LENGTH];
     uint8_t payable_amount[PARAMETER_LENGTH];
+    uint8_t address[ADDRESS_LENGTH];
     uint8_t contract_address_sent[ADDRESS_LENGTH];
     char ticker_sent[MAX_TICKER_LEN];
 

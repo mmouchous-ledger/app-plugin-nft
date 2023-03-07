@@ -114,7 +114,8 @@ jobs:
 
       - name: Build
         run: |
-          make DEBUG=1 BOLOS_SDK=${{ matrix.sdk }} -j
+          make clean
+          make -j DEBUG=1 BOLOS_SDK=${{ matrix.sdk }}
 
       - name: Rename binary
         run: |
@@ -148,10 +149,12 @@ jobs:
         with:
           repository: LedgerHQ/app-ethereum
           ref: ${{ ((github.base_ref || github.ref_name) == 'main' && 'master') || (github.base_ref || github.ref_name) }}
+          submodules: recursive
 
       - name: Build
         run: |
-          make DEBUG=1 BYPASS_SIGNATURES=1 BOLOS_SDK=${{ matrix.sdk }} -j
+          make clean
+          make -j DEBUG=1 BYPASS_SIGNATURES=1 BOLOS_SDK=${{ matrix.sdk }} CHAIN=ethereum ALLOW_DATA=1
 
       - name: Rename binary
         run: |
@@ -170,7 +173,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: Download built binaries
         uses: actions/download-artifact@v3
         with:
@@ -192,4 +194,4 @@ jobs:
 
       - name: Run Zemu tests
         run: |
-          cd tests && yarn test
+          cd tests && docker pull zondax/builder-zemu@sha256:8d7b06cedf2d018b9464f4af4b7a8357c3fbb180f3ab153f8cb8f138defb22a4 && yarn test
