@@ -132,6 +132,22 @@ function zemu(device, func, testNetwork, signed = false) {
     };
 }
 
+async function enableDisableBlindSigning(sim, enable = true) {
+    // Navigate and enter the settings
+    await sim.navigateUntilText(".", "", "Settings", true, false);
+    await sim.clickBoth();
+    // This assume that Blind Signing is the first setting.
+    const events = await sim.getEvents();
+    if (events.some((event) => event.text.includes((enable) ? "Disabled" : "Enabled"))) {
+        // Blind signing is disabled.
+        sim.log("Activating Blind Signing");
+        await sim.clickBoth();
+    }
+    // Get out of settings
+    await sim.navigateUntilText(".", ".", "Back", true, false);
+    await sim.clickBoth("", false);
+}
+
 /**
  * Process the transaction through the full test process in interaction with the simulator
  * @param {Eth} eth Device to test (nanos, nanox)
@@ -163,6 +179,9 @@ async function processTransaction(eth, sim, steps, label, rawTxHex, srlTx = "") 
             );
             return null;
         });
+
+    // Check if blind signing is necessary
+    await enableDisableBlindSigning(sim);
 
     let tx = eth.signTransaction("44'/60'/0'/0/0", serializedTx, resolution);
 
