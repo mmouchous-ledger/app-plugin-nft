@@ -135,7 +135,6 @@ function zemu(device, func, testNetwork, signed = false) {
 async function enableDisableBlindSigning(sim, enable = true) {
     // Navigate and enter the settings
     await sim.navigateUntilText(".", "", "Settings", true, false);
-    await sim.clickBoth();
     // This assume that Blind Signing is the first setting.
     const events = await sim.getEvents();
     if (events.some((event) => event.text.includes((enable) ? "Disabled" : "Enabled"))) {
@@ -145,7 +144,6 @@ async function enableDisableBlindSigning(sim, enable = true) {
     }
     // Get out of settings
     await sim.navigateUntilText(".", ".", "Back", true, false);
-    await sim.clickBoth("", false);
 }
 
 /**
