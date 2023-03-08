@@ -89,7 +89,12 @@ jobs:
         env:
           EMAIL: ${{ secrets.COVERITY_SCAN_EMAIL }}
           TOKEN: ${{ secrets.COVERITY_SCAN_TOKEN }}
-
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: cov-int
+          path: cov-int
+          
   job_build_debug_plugin:
     name: Build debug plugin
     strategy:
